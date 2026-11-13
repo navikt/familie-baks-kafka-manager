@@ -7,12 +7,11 @@ Appen er skrudd av som standard og deployes manuelt ved behov.
 
 Du må ha forvalter-rollen for BAKS og være på naisdevice for å bruke appen. Se også [kafka-manager i familie-dokumentasjonen](https://github.com/navikt/familie/blob/main/doc/drift/kafka-manager.md), blant annet om å sette offset for en consumer group.
 
-## Oppdatere versjonen
+## Versjon
 
-1. Åpne [Artifact Registry](https://console.cloud.google.com/artifacts/docker/nais-management-233d/europe-north1/poao/kafka-manager).
-2. Finn nyeste publiserte image og kopier taggen.
-3. Sett taggen som verdi for `kafkaManagerVersion` i [vars.yaml](.nais/vars.yaml). Dev og prod bruker samme fil.
-4. Commit og push endringen til branchen du vil deploye fra.
+Appen bruker taggen `latest` av Kafka Manager, så du trenger ikke å oppdatere versjonen før du deployer.
+
+Hvis du må låse appen til en bestemt versjon, setter du taggen fra [Artifact Registry](https://console.cloud.google.com/artifacts/docker/nais-management-233d/europe-north1/poao/kafka-manager) som verdi for `kafkaManagerVersion` i [vars.yaml](.nais/vars.yaml) på branchen du deployer fra. Dev og prod bruker samme fil.
 
 ## Legge til topic
 
@@ -33,8 +32,6 @@ Du må ha forvalter-rollen for BAKS og være på naisdevice for å bruke appen. 
 Uten denne tilgangen kan ikke Kafka Manager lese fra topicen.
 
 ## Deploye manuelt
-
-Før du deployer, bør du [oppdatere til siste versjon](#oppdatere-versjonen) av Kafka Manager for å redusere risikoen for kjente sikkerhetshull.
 
 1. Åpne **Actions** i GitHub og velg workflowen **Deploy familie-baks-kafka-manager**.
 2. Trykk **Run workflow** og velg branchen med konfigurasjonen du vil deploye.
