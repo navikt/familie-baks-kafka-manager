@@ -22,14 +22,14 @@ jobs:
         with:
           persist-credentials: false
       - name: Deploy familie-baks-kafka-manager til dev
-        uses: nais/deploy/actions/deploy@6a9dcd6df697ec2d38edc78cadb0b9acd1232f50 # ratchet:nais/deploy/actions/deploy@v3
+        uses: nais/deploy/actions/deploy@b1a9a40dae937091497f8f29c5ea5334cc1c0643 # ratchet:nais/deploy/actions/deploy@v3
         env:
           CLUSTER: dev-gcp
           RESOURCE: .nais/familie-baks-kafka-manager-dev.yaml
           VARS: .nais/vars.yaml
       - name: Deploy familie-baks-kafka-manager til prod
         if: inputs.deploy_to_prod
-        uses: nais/deploy/actions/deploy@6a9dcd6df697ec2d38edc78cadb0b9acd1232f50 # ratchet:nais/deploy/actions/deploy@v3
+        uses: nais/deploy/actions/deploy@b1a9a40dae937091497f8f29c5ea5334cc1c0643 # ratchet:nais/deploy/actions/deploy@v3
         env:
           CLUSTER: prod-gcp
           RESOURCE: .nais/familie-baks-kafka-manager-prod.yaml
